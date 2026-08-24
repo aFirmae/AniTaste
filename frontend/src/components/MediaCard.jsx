@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './MediaCard.css';
 
 export default function MediaCard({ media, index = 0 }) {
@@ -10,6 +11,7 @@ export default function MediaCard({ media, index = 0 }) {
   const genres = (media.genres || []).slice(0, 3);
 
   return (
+      <Link to={`/anime/${media.id}`} className="media-card-link">
     <motion.div
       className="media-card"
       style={{
@@ -49,5 +51,6 @@ export default function MediaCard({ media, index = 0 }) {
         )}
       </div>
     </motion.div>
+    </Link>
   );
 }

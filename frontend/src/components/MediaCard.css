@@ -1,3 +1,9 @@
+.media-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .media-card {
   position: relative;
   border-radius: var(--radius-md);
