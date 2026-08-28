@@ -49,11 +49,15 @@ export function useApi(endpoint, params = {}, options = {}) {
         return res.json();
       })
       .then((json) => {
-        const media = json?.data?.Page?.media || [];
-        cache.set(url, media);
-        setData(media);
-        setLoading(false);
-      })
+  const result =
+    json?.data?.Page?.media ??
+    json?.data?.Media ??
+    null;
+
+  cache.set(url, result);
+  setData(result);
+  setLoading(false);
+})
       .catch((err) => {
         if (err.name !== 'AbortError') {
           setError(err.message);
